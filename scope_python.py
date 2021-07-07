@@ -81,6 +81,4 @@ foo_global_x()
 print('outside the function - global scope, the x is', x)
 print('outside the function - global scope, the y is', y)
 
-print('outside the function = global scope, the x is', x)
-print('outside the function = global scope the y is', y)
 

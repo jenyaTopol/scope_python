@@ -39,3 +39,48 @@ print(x1)
 
 #print('outside thefunction x is' , x)
 #print('outside the function y is', y)
+
+
+print('==============================================================')
+
+x = 1
+y = 1
+
+def foo1(x):
+    print(f'x inside the function foo us {x}, thisis local x')
+    x = 5
+    print(f'x inside function foo is {x}, this is a local x')
+
+def foo_adv():
+    # 1. access field value before putting new value
+    #    field is read - only! be carefull!
+    print(f'x inside foo_avd {x}')  # local x not found, global x will be used
+    x = 10  # craash!!v
+    print(f'x inside foo_avd {x}')
+
+
+def foo_adv_new_x():
+    # 2. access field first time with new value
+    #    field is local!!!
+    x = 10  # this will make a local x
+    print(f'x inside foo_avd {x}')
+
+
+def foo_global_x():
+    # 3. the function x will be same as global
+    global x
+    x = 77
+
+    # foo(3)
+    # foo(x)
+    # foo_adv_read_only()
+
+
+foo_adv_new_x()
+foo_global_x()
+print('outside the function - global scope, the x is', x)
+print('outside the function - global scope, the y is', y)
+
+print('outside the function = global scope, the x is', x)
+print('outside the function = global scope the y is', y)
+
